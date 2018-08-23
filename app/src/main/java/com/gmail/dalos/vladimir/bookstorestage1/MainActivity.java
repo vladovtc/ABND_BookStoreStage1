@@ -4,7 +4,6 @@ import android.content.ContentValues;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -18,10 +17,23 @@ import android.widget.Toast;
 import com.gmail.dalos.vladimir.bookstorestage1.data.BookContract.BookEntry;
 import com.gmail.dalos.vladimir.bookstorestage1.data.BookDbHelper;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 
 public class MainActivity extends AppCompatActivity {
 
+    @BindView(R.id.text_display)
+    TextView textView;
     private BookDbHelper mDbHelper;
+
+    @OnClick(R.id.fab)
+    public void insertDummyData(View view) {
+
+        insertBooks();
+        queryData();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,20 +41,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ButterKnife.bind(this);
 
         Toast toast = Toast.makeText(this, "Insert dummy data --------->", Toast.LENGTH_LONG);
         toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
         toast.show();
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                insertBooks();
-                queryData();
-            }
-        });
 
         mDbHelper = new BookDbHelper(this);
     }
@@ -58,24 +61,14 @@ public class MainActivity extends AppCompatActivity {
 
         SQLiteDatabase db = mDbHelper.getReadableDatabase();
 
-        String[] projection = {
-                BookEntry.COLUMN_ID,
-                BookEntry.COLUMN_BOOK_NAME,
-                BookEntry.COLUMN_BOOK_PRICE,
-                BookEntry.COLUMN_BOOK_QUANTITY,
-                BookEntry.COLUMN_BOOK_SUPPLIER,
-                BookEntry.COLUMN_BOOK_PHONE};
-
         Cursor cursor = db.query(
                 BookEntry.TABLE_NAME,
-                projection,
+                null,
                 null,
                 null,
                 null,
                 null,
                 null);
-
-        TextView textView = findViewById(R.id.text_display);
 
         try {
 
@@ -128,6 +121,12 @@ public class MainActivity extends AppCompatActivity {
         values.put(BookEntry.COLUMN_BOOK_PHONE, 1234);
 
         long newRowId = db.insert(BookEntry.TABLE_NAME, null, values);
+
+        if (newRowId == -1) {
+            Toast.makeText(this, getString(R.string.row_not_saved_error_message), Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(this, getString(R.string.row_saved_successfully_message), Toast.LENGTH_SHORT).show();
+        }
 
         Log.d("udacity", String.valueOf(newRowId));
 
