@@ -99,6 +99,7 @@ public class EditorActivity extends AppCompatActivity implements
             }
             if (TextUtils.isEmpty(supplierPhoneString)) {
                 Toast.makeText(this, "Requires a supplierPhone number", Toast.LENGTH_SHORT).show();
+                return;
             }
 
             ContentValues values = new ContentValues();
@@ -117,6 +118,27 @@ public class EditorActivity extends AppCompatActivity implements
                 finish();
             }
         } else {
+            if (TextUtils.isEmpty(nameString)) {
+                Toast.makeText(this, "Requires a name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(priceString)) {
+                Toast.makeText(this, "Requires price", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(quantityString)) {
+                Toast.makeText(this, "Requires quantity", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(supplierNameString)) {
+                Toast.makeText(this, "Requires suppliers name", Toast.LENGTH_SHORT).show();
+                return;
+            }
+            if (TextUtils.isEmpty(supplierPhoneString)) {
+                Toast.makeText(this, "Requires a supplierPhone number", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
 
             ContentValues values = new ContentValues();
             values.put(BookEntry.COLUMN_BOOK_NAME, nameString);
