@@ -1,4 +1,4 @@
-package com.gmail.dalos.vladimir.bookstorestage1;
+package com.gmail.dalos.vladimir.bookstorestage2;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

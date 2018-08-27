@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp12"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".DetailsActivity"
+    tools:showIn="@layout/activity_details">
+
+    <TextView
+        android:id="@+id/details_name"
+        style="@style/DetailsTextView"
+        android:text="@string/book_name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_details_name"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/details_name"
+        tools:text="Some book" />
+
+    <TextView
+        android:id="@+id/details_price"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/tv_details_name"
+        android:text="@string/price"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_details_price"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/details_price"
+        android:text="@string/price"/>
+
+    <Button
+        android:id="@+id/btn_details_quantity_up"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:layout_below="@id/tv_details_price"
+        android:layout_marginBottom="@dimen/dp8"
+        android:background="@drawable/ic_add" />
+
+    <TextView
+        android:id="@+id/details_quantity"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/btn_details_quantity_up"
+        android:text="@string/quantity"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_details_quantity"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/details_quantity"
+        tools:text="@string/quantity"
+        android:gravity="center"/>
+
+    <Button
+        android:id="@+id/btn_details_quantity_down"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:layout_below="@id/tv_details_quantity"
+        android:layout_marginBottom="@dimen/dp8"
+        android:background="@drawable/ic_remove" />
+
+    <TextView
+        android:id="@+id/details_supplier_name"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/btn_details_quantity_down"
+        android:text="@string/supplier_name"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_details_supplier_name"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/details_supplier_name"
+        tools:text="@string/supplier_name" />
+
+    <TextView
+        android:id="@+id/details_supplier_phone"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/tv_details_supplier_name"
+        android:text="@string/supplier_phone"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_details_supplier_phone"
+        style="@style/DetailsTextView"
+        android:layout_below="@id/details_supplier_phone"
+        tools:text="Supplier phone number:" />
+
+    <Button
+        android:id="@+id/btn_details_call_supplier"
+        android:layout_width="@dimen/dp50"
+        android:layout_height="@dimen/dp50"
+        android:layout_centerInParent="true"
+        android:background="@drawable/ic_call" />
+
+</RelativeLayout>

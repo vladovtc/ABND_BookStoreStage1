@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/dp12"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".EditorActivity"
+    tools:showIn="@layout/activity_editor">
+
+    <TextView
+        android:id="@+id/tv_product_name"
+        style="@style/EditorTextView"
+        android:text="@string/product_name" />
+
+    <EditText
+        android:id="@+id/et_book_name"
+        style="@style/EditorEditText"
+        android:layout_toEndOf="@id/tv_product_supplier_name"
+        android:hint="@string/input_book_name"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tv_product_price"
+        style="@style/EditorTextView"
+        android:layout_below="@id/et_book_name"
+        android:text="@string/price" />
+
+    <EditText
+        android:id="@+id/et_book_price"
+        style="@style/EditorEditText"
+        android:layout_below="@id/et_book_name"
+        android:layout_toEndOf="@id/tv_product_supplier_name"
+        android:hint="@string/input_book_price"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tv_product_quantity"
+        style="@style/EditorTextView"
+        android:layout_below="@id/et_book_price"
+        android:text="@string/quantity" />
+
+    <EditText
+        android:id="@+id/et_book_quantity"
+        style="@style/EditorEditText"
+        android:layout_below="@id/et_book_price"
+        android:layout_toEndOf="@id/tv_product_supplier_name"
+        android:hint="@string/input_book_quantity"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/tv_product_supplier_name"
+        style="@style/EditorTextView"
+        android:layout_below="@id/et_book_quantity"
+        android:text="@string/supplier_name" />
+
+    <EditText
+        android:id="@+id/et_supplier_name"
+        style="@style/EditorEditText"
+        android:layout_below="@id/et_book_quantity"
+        android:layout_toEndOf="@id/tv_product_supplier_name"
+        android:hint="@string/input_supplier_name"
+        android:inputType="text" />
+
+    <TextView
+        android:id="@+id/tv_product_supplier_phone"
+        style="@style/EditorTextView"
+        android:layout_below="@id/et_supplier_name"
+        android:text="@string/supplier_phone" />
+
+    <EditText
+        android:id="@+id/et_supplier_phone"
+        style="@style/EditorEditText"
+        android:layout_below="@id/et_supplier_name"
+        android:layout_toEndOf="@id/tv_product_supplier_name"
+        android:hint="@string/input_supplier_phone"
+        android:inputType="phone" />
+
+</RelativeLayout>
